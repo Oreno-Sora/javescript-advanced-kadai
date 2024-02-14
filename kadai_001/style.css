@@ -26,8 +26,8 @@ body {
 .mistyped {
   background-color: red;
 }
-/* 現在のタイプ数が表示される領域 */
-.total {
+/* 現在の正解タイプ数の表示用 */
+.correct {
   margin: 0;
   font-weight: bold;
   color: #888;

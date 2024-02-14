@@ -2,7 +2,7 @@
 let untyped = '';
 let typed = '';
 let score = 0;
-let totalCount = 0;     // 現在のタイプ数カウンタ
+//let totalCount = 0;     // 現在のタイプ数カウンタ
 
 // 必要なHTML要素の取得
 const untypedField = document.getElementById('untyped');
@@ -10,8 +10,10 @@ const typedField = document.getElementById('typed');
 const wrap = document.getElementById('wrap');
 const start = document.getElementById('start');
 const count = document.getElementById('count');
-// 現在のタイプ数を表示するHTML要素を取得する
-const total = document.getElementById('total');
+// 現在の正解タイプ数を表示するHTML要素を取得するように修正
+// ☓現在のタイプ数を表示するHTML要素を取得する
+// ☓const total = document.getElementById('total');
+const correct = document.getElementById('correct');
  
 // 複数のテキストを格納する配列
 const textLists = [
@@ -47,10 +49,11 @@ const createText = () => {
 //--------------------------
 // キー入力の判定
 //--------------------------
-const keyPress = e => {
-  // 現在のタイプ数をインクリメント
-  totalCount++;
-  total.textContent = totalCount;        // 現在のタイプ数を表示
+const keyPress = (e) => {
+  // 現在の正解タイプ数を表示するHTML要素を取得するように修正
+  // ☓現在のタイプ数をインクリメント
+  // ☓totalCount++;
+  // ☓total.textContent = totalCount;        // 現在のタイプ数を表示
 
   // 次の正解のキーを取得
   let nextkey = untyped.substring(0, 1);
@@ -69,6 +72,8 @@ const keyPress = e => {
   // 正タイプの場合
   // スコアのインクリメント
   score++;
+  // ★現在のスコア（正解タイプ数）を表示する
+  correct.textContent = score;
   wrap.classList.remove('mistyped');
   typed += untyped.substring(0, 1);
   untyped = untyped.substring(1);
